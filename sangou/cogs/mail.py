@@ -14,7 +14,12 @@ class Mail(Cog):
     def __init__(self, bot):
         self.bot = bot
 
-
+    
+    @commands.command()
+    async def msgbox(self, ctx, *, the_text: str):
+        open("assets/msg.txt", "a").write(f"{ctx.author.display_name} says: {the_text}\n")
+        await ctx.message.reply("message stored!", mention_author=False)
+    
     @commands.command()
     async def anonmail(self, ctx, *, the_text: str):
         """[U] Help me."""
