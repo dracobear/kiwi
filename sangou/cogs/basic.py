@@ -31,11 +31,11 @@ class Basic(Cog):
     async def hello(self, ctx):
         """This says hello to you.
 
-        There really isn't much else to this.
+        the help text says hello too!
 
         No arguments."""
         await ctx.send(
-            f"Hello {ctx.author.display_name}! Have you drank your Soylent Green today?"
+           random.choice([f"good timezone. {ctx.author.display_name}", f"hello {ctx.author.display_name}, have you seen your wallet today?", "good morning. and in case i dont see you. good afternoon, good evening, and goodnight" ])
         )
 
     @commands.command(aliases=["whatsmyip", "myip"])
@@ -325,11 +325,11 @@ class Basic(Cog):
     async def hug(self, ctx):
         """This gives you a hug.
 
-        I need to change this response and
-        make it random. But I'm too lazy...
+        ren wanted this to be random.
+        so i made it be random
 
         No arguments."""
-        await ctx.send(f"I am incapable of hugs, but... \*hugs*")
+        await ctx.send(random.choice([f"{ctx.author.display_name} got free hugs!", f"{ctx.author.display_name} got hugged by a kiwi", "i have no arms and am incapable of hugs, sorry!"]))
 
     @commands.command()
     async def choose(self, ctx, *options):
@@ -395,19 +395,19 @@ class Basic(Cog):
         hon hon. oui oui.
         wee wee.
 
-        No arguments."""
+        **drink some water** /ref"""
         await ctx.send(f"🥖")
 
     @commands.command()
     async def kill(self, ctx, someone: str):
         """This kills someone.
 
-        Much like Hug, I really need to make this random.
-        Unfortunately, I am both lazy and unpaid. Oh well.
+        Much like hug, I made this random.
+        fortunately, While  am both lazy and unpaid. i still did it
 
         - `someone`
         Who's going to die. Could just be text."""
-        await ctx.send(f"{someone} got an anime addiction.")
+        await ctx.send(random.choice([f"{someone} got stabbed with gardening shears.", f"{someone} was killed", f"{someone} just happened to have the orbital laser cannon aimed directly at them.", f"{someone} jumped into the bottomless pit, which we can see here is bottomless"]))
 
     @commands.bot_has_permissions(add_reactions=True)
     @commands.command(aliases=["timer"])
@@ -472,6 +472,7 @@ class Basic(Cog):
 
         - `DON'T HESITATE`
         WHEN YOU GO BIG TIME"""
+        
         await ctx.send(files=[discord.File("assets/bigtimerush.mp3")])
 
     @commands.command()
@@ -606,7 +607,7 @@ class Basic(Cog):
     async def about(self, ctx):
         """This shows the bot info.
 
-        Did you know this bot used to be a Dishwasher?
+        Did you know this bot used to be a person?
         What? You don't care? Well I didn't care either.
 
         No arguments."""
@@ -638,22 +639,21 @@ class Basic(Cog):
     async def hostserver(self, ctx):
         """Gives you a link to the bot's support server.
 
-        This is the same even if it's self hosted. Sorry!
-        This is what I get for not learning to code!
+        If you self host this PLEASE set it to your own server
 
         No arguments."""
         await ctx.author.send(
-            content="Here is an invite to my host server.\nhttps://discord.gg/"
-            + "p"
-            + "3"
-            + "M"
-            + "v"
-            + "p"
+            content="Here is an invite to my support server.\nhttps://discord.gg/"
+            + "a"
+            + "Z"
             + "S"
-            + "v"
-            + "X"
-            + "r"
-            + "m"
+            + "W"
+            + "q"
+            + "8"
+            + "D"
+            + "G"
+            + "d"
+            + "Y"
         )
         if ctx.guild:
             await ctx.reply(

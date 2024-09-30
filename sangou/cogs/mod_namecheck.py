@@ -5,9 +5,11 @@ import json
 import re
 import datetime
 import asyncio
+import random
 from unidecode import unidecode
 from helpers.checks import ismod
 from helpers.sv_config import get_config
+universe = ["unfunny", "moderation's rival", "kiwi's nemesis", "evil", "unreadable name"]
 
 
 class ModNamecheck(Cog):
@@ -33,7 +35,7 @@ class ModNamecheck(Cog):
         oldname = target.display_name
         newname = unidecode(target.display_name)
         if not newname:
-            newname = "Unreadable Name"
+            newname = random.choice(universe)
         await target.edit(nick=newname, reason="Namecheck")
         return await ctx.reply(
             content=f"Successfully decancered **{oldname}** to  `{newname}`.",

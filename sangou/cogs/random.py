@@ -6,6 +6,7 @@ from discord.ext import commands
 from discord.ext.commands import Cog
 import html
 import json
+import requests
 
 
 class Random(Cog):
@@ -62,6 +63,65 @@ class Random(Cog):
             mention_author=False,
         )
 
+    @commands.command()
+    async def cat(self,ctx):
+        """gives you a cat
+
+        meow :3
+        not beating the furry allegations...
+
+        No arguments."""
+        catr = requests.get("https://api.thecatapi.com/v1/images/search?size=small")
+        if catr.status_code == 200:
+            imgurc = catr.json()[0]['url']
+            await ctx.reply(imgurc, mention_author=False)
+        else:
+            await ctx.reply("cats are too angry to send right now...", mention_author=False)
+            
+            
+    @commands.command()
+    async def dog(self,ctx):
+        """gives you a dog
+
+        they will eat all your plastic
+
+        No arguments."""
+        dogr = requests.get("https://api.thedogapi.com/v1/images/search?size=small")
+        if dogr.status_code == 200:
+            imgurd = dogr.json()[0]['url']
+            await ctx.reply(imgurd, mention_author=False)
+        else:
+            await ctx.reply("dogs are being too much trouble to send right now...", mention_autor=False)
+            
+    @commands.command()
+    async def fox(self,ctx):
+        """gives you a fox
+
+        they are quite silly
+
+        No arguments."""
+        foxr = requests.get("https://randomfox.ca/floof/")
+        if foxr.status_code == 200:
+            imgurf = foxr.json()['image']
+            await ctx.reply(imgurf, mention_author=False)
+        else:
+            await ctx.reply("foxes got rabies and cant be sent right now...", mention_autor=False)
+            
+    @commands.command()
+    async def duck(self,ctx):
+        """gives you a duck
+
+        The season finale of duck-tective!
+
+        No arguments."""
+        ducker = requests.get("https://random-d.uk/api/v2/random")
+        if ducker.status_code == 200:
+            imgurdu = ducker.json()['url']
+            await ctx.reply(imgurdu, mention_author=False)
+        else:
+            await ctx.reply("duck-tective was killed by his evil twin brother, and cant be sent right now...", mention_autor=False)
+    
+    
     @commands.command()
     async def noise(self, ctx):
         """Posts a random Noise.
