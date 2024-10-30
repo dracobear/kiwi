@@ -32,7 +32,8 @@ class Mail(Cog):
         channel = self.bot.get_channel(1281252582504923207)
         the_text = f"**FROM:" + random.choice(anon) + f"!**\n{the_text}"
         await channel.send(the_text)
-        await ctx.message.reply("message sent!.", mention_author=False)
+        await ctx.message.reply("message sent!.", mention_author=False, delete_after=2,)
+        await ctx.message.delete()
         
     # rip RBTXTE, where i learned how file edting worked
     @commands.command()
